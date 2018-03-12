@@ -1,0 +1,173 @@
+.header {
+    height: 100vh;
+}
+
+.navigation {
+    height: 6.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba($color-black, 0.5);
+    width: 100%;
+    position: fixed;
+    padding: 1rem 2rem;
+
+
+    @include respond(phone) {
+        height: auto;
+        flex-wrap: wrap;    
+        align-content: space-around;    
+    }
+    
+    &__logo-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        margin-right: 20%;
+
+        & h3 {
+            font-size: 2.5rem;
+            color: $color-white-dark;
+            margin-left: .8rem;
+
+            @include respond(phone) {
+                font-size: 1.92rem;
+            }
+        }
+        
+        & h3 span {
+            font-weight: 100;
+        }
+
+        @include respond(tab-port) {
+            margin-right: 2%;
+        }
+
+        @include respond(phone) {
+            margin-left: 3rem;
+        }
+
+
+    }
+
+    &__logo {
+        height: 4.2rem;
+        width: 4.2rem;
+    }
+
+    &__nav {
+
+        @include respond(phone) {
+            order: 1;
+            flex: 0 0 100%;
+            display: none;           
+        }
+        
+    }
+
+    &__list {
+        list-style: none;
+        display: flex;
+
+        @include respond(phone) {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            line-height: 2;
+        }
+     
+    }
+
+    &__item {
+
+
+    }
+
+    &__link:link,
+    &__link:visited {
+        text-decoration: none;
+        font-family: 'gothic';
+        font-size: 1.8rem;
+        font-weight: 700;
+        padding: .8rem 1.28rem;
+        color: $color-white;
+        & span {
+            font-weight: 100;
+            font-family: 'Gotham Narrow Book';
+        }
+    }
+
+    &__login {
+
+    }
+
+    &__checkbox {
+        display: none;
+    }
+
+    &__button {
+
+        display: none;
+
+        @include respond(phone) {
+            cursor: pointer;
+            position: fixed;
+            top: 3rem;
+            display: block;
+        }
+    }
+
+    // FUNCTIONALITY
+
+    &__checkbox:checked ~ &__nav {
+        display: block;
+    }
+
+    // ICON
+    &__icon {
+        position: relative;
+
+        &,
+        &::before,
+        &::after {
+        width: 2.3rem;
+        height: .4rem;
+        border-radius: .5rem;
+        background-color: $color-white-dark;
+        display: inline-block;
+        }
+
+        &::before,
+        &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        transition: all 0.2s;
+        }
+
+        &::before {
+        top: -.8rem;
+        }
+
+        &::after {
+        top: .7rem;
+        }
+    }
+
+
+    &__checkbox:checked + &__button &__icon {
+        background-color: transparent;
+    }
+
+    &__checkbox:checked + &__button &__icon::before {
+        top: 0;
+        transform: rotate(135deg);
+    }
+
+    &__checkbox:checked + &__button &__icon::after {
+        top: 0;
+        transform: rotate(-135deg);
+    }
+        
+}

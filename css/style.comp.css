@@ -1,0 +1,150 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+
+body {
+  box-sizing: border-box;
+  font-family: 'Gothic', sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: #5c5c5c;
+  background-image: url(../img/bg-pattern.svg);
+  background-size: calc(100vw/4); }
+
+@font-face {
+  font-family: 'Gotham Narrow Book';
+  src: url(../../css/fonts/Gotham-Narrow-Book.otf); }
+
+.btn, .btn:link, .btn:visited {
+  font-family: gothic;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: .8rem 1.6rem;
+  border: none;
+  border-radius: 2px;
+  text-transform: uppercase;
+  cursor: pointer; }
+
+.btn--primary {
+  background: #ffc400;
+  color: #2e2e2e;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  transition: background 0.15s, box-shadow 0.3s, color 0.15s; }
+  .btn--primary:hover, .btn--primary:active {
+    background: #ffc400e6;
+    color: #2e2e2e;
+    outline: none; }
+
+.header {
+  height: 100vh; }
+
+.navigation {
+  height: 6.3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  position: fixed;
+  padding: 1rem 2rem; }
+  @media only screen and (max-width: 37.5em) {
+    .navigation {
+      height: auto;
+      flex-wrap: wrap;
+      align-content: space-around; } }
+  .navigation__logo-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20%; }
+    .navigation__logo-box h3 {
+      font-size: 2.5rem;
+      color: #eee;
+      margin-left: .8rem; }
+      @media only screen and (max-width: 37.5em) {
+        .navigation__logo-box h3 {
+          font-size: 1.92rem; } }
+    .navigation__logo-box h3 span {
+      font-weight: 100; }
+    @media only screen and (max-width: 56.25em) {
+      .navigation__logo-box {
+        margin-right: 2%; } }
+    @media only screen and (max-width: 37.5em) {
+      .navigation__logo-box {
+        margin-left: 3rem; } }
+  .navigation__logo {
+    height: 4.2rem;
+    width: 4.2rem; }
+  @media only screen and (max-width: 37.5em) {
+    .navigation__nav {
+      order: 1;
+      flex: 0 0 100%;
+      display: none; } }
+  .navigation__list {
+    list-style: none;
+    display: flex; }
+    @media only screen and (max-width: 37.5em) {
+      .navigation__list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: 2; } }
+  .navigation__link:link, .navigation__link:visited {
+    text-decoration: none;
+    font-family: 'gothic';
+    font-size: 1.8rem;
+    font-weight: 700;
+    padding: .8rem 1.28rem;
+    color: #fff; }
+    .navigation__link:link span, .navigation__link:visited span {
+      font-weight: 100;
+      font-family: 'Gotham Narrow Book'; }
+  .navigation__checkbox {
+    display: none; }
+  .navigation__button {
+    display: none; }
+    @media only screen and (max-width: 37.5em) {
+      .navigation__button {
+        cursor: pointer;
+        position: fixed;
+        top: 3rem;
+        display: block; } }
+  .navigation__checkbox:checked ~ .navigation__nav {
+    display: block; }
+  .navigation__icon {
+    position: relative; }
+    .navigation__icon, .navigation__icon::before, .navigation__icon::after {
+      width: 2.3rem;
+      height: .4rem;
+      border-radius: .5rem;
+      background-color: #eee;
+      display: inline-block; }
+    .navigation__icon::before, .navigation__icon::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all 0.2s; }
+    .navigation__icon::before {
+      top: -.8rem; }
+    .navigation__icon::after {
+      top: .7rem; }
+  .navigation__checkbox:checked + .navigation__button .navigation__icon {
+    background-color: transparent; }
+  .navigation__checkbox:checked + .navigation__button .navigation__icon::before {
+    top: 0;
+    transform: rotate(135deg); }
+  .navigation__checkbox:checked + .navigation__button .navigation__icon::after {
+    top: 0;
+    transform: rotate(-135deg); }
